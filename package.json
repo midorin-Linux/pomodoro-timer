@@ -15,10 +15,14 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "build": "tailwindcss -i src/input.css -o output.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.2",
     "tailwindcss": "^4.3.2"
+  },
+  "devDependencies": {
+    "prettier": "3.9.5"
   }
 }
