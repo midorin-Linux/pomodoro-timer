@@ -30,7 +30,7 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p dist
-          cp index.html script.js output.css dist/
+          cp index.html script.js output.css favicon.svg CNAME robots.txt sitemap.xml dist/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
