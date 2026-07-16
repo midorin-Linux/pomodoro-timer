@@ -16,6 +16,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tailwindcss -i src/input.css -o output.css --minify",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

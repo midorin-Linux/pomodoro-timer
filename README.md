@@ -14,5 +14,5 @@ npm install
 
 ```shell
 npm run build           # TailwindCSSのビルド
-npx prettier . --write  # フォーマット
+npx run format:write    # フォーマット
 ```
