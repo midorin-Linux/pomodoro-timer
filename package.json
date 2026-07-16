@@ -1,0 +1,24 @@
+{
+  "name": "pomodoro-timer",
+  "version": "0.0.1",
+  "description": "Web timer with adjustable cycles ",
+  "homepage": "https://github.com/midorin-Linux/pomodoro-timer#readme",
+  "bugs": {
+    "url": "https://github.com/midorin-Linux/pomodoro-timer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midorin-Linux/pomodoro-timer.git"
+  },
+  "license": "Apache-2.0",
+  "author": "midorin-Linux",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
+  }
+}
