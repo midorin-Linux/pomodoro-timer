@@ -24,6 +24,15 @@ let remainingSeconds = settings.work * 60;
 let timerId = null;
 let isRunning = false;
 
+const workSound = new Audio("work.mp3");
+const restSound = new Audio("rest.mp3");
+
+function playModeStartSound(targetMode) {
+  const sound = targetMode === "work" ? workSound : restSound;
+  sound.currentTime = 0;
+  sound.play().catch(() => {});
+}
+
 function durationFor(targetMode) {
   return targetMode === "work" ? settings.work * 60 : settings.shortBreak * 60;
 }
@@ -38,13 +47,14 @@ function formatTime(totalSeconds) {
 }
 
 function updateDisplay() {
-  modeLabel.textContent = MODE_LABELS[mode];
+  modeLabel.textContent = isRunning ? MODE_LABELS[mode] : "停止中";
   timeDisplay.textContent = formatTime(remainingSeconds);
 }
 
 function advanceMode() {
   mode = mode === "work" ? "shortBreak" : "work";
   remainingSeconds = durationFor(mode);
+  playModeStartSound(mode);
 }
 
 function tick() {
@@ -66,8 +76,12 @@ function setControlsRunning(running) {
 function startTimer() {
   if (isRunning) return;
   isRunning = true;
+  if (remainingSeconds === durationFor(mode)) {
+    playModeStartSound(mode);
+  }
   timerId = setInterval(tick, 1000);
   setControlsRunning(true);
+  updateDisplay();
 }
 
 function pauseTimer() {
@@ -76,6 +90,7 @@ function pauseTimer() {
   clearInterval(timerId);
   timerId = null;
   setControlsRunning(false);
+  updateDisplay();
 }
 
 function resetTimer() {
